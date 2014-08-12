@@ -1,0 +1,32 @@
+.caginate-centered(ng-if="pages.length > 0")
+  
+  .perPage
+    .item-count(ng-class="perPageClass(5)",ng-click="setPerPage(5)") 5
+    .item-count(ng-class="perPageClass(10)",ng-click="setPerPage(10)") 10
+    .item-count(ng-class="perPageClass(25)",ng-click="setPerPage(25)") 25
+    .item-count(ng-class="perPageClass(50)",ng-click="setPerPage(50)") 50
+  
+  ul.caginate
+
+    li(ng-class="{disabled : currentPage==1}",ng-click="previousPage()")
+      a(href="")
+        i.fa.fa-angle-left
+        span.left-10 Prev
+
+    li(ng-class="{disabled : currentPage==1}",ng-click="firstPage()")
+      a(href="")
+        i.fa.fa-angle-double-left
+        span.left-10 First
+
+    li(ng-class="pageClass($index+1)",ng-repeat="page in pages track by $index")
+      a(href="",ng-if="$index < currentPage+2 && $index > currentPage-4",ng-click="setPage($index+1)") {{$index + 1}}
+
+    li(ng-class="{disabled : currentPage==pages.length}",ng-click="lastPage()")
+      a(href="")
+        span Last
+        i.fa.fa-angle-double-right.left-10
+
+    li(ng-class="{disabled : currentPage==pages.length}",ng-click="nextPage()")
+      a(href="")
+        span Next
+        i.fa.fa-angle-right.left-10
