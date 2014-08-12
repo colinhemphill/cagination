@@ -2,6 +2,8 @@ Cagination
 ==========
 A Mongoose plugin to simplify the pagination process.
 
+----------
+
 Use Case
 --------
     var currentPage = data.currentPage;
@@ -10,10 +12,10 @@ Use Case
         firstName: 'Nicolas'
     };
     
-    MovieStar.find(options).select('firstName lastName filmographyId').populate([{
+    MovieStar.find(options).select('firstName lastName filmographyId').populate({
         path: 'filmographyId',
         select: 'films credits roles'
-    }]).sort({
+    }).sort({
         lastName: -1,
         firstName: -1
     }).skip((currentPage - 1) * perPage).limit(perPage).exec(function(err, stars) {
@@ -40,10 +42,10 @@ Caginate aims to be robust but reproducible. Like your standard find() query, Ca
     MovieStar.caginate({
         options: options,
         select: 'firstName lastName filmographyId',
-        populate: [{
+        populate: {
             path: 'filmographyId',
             select: 'films credits roles'
-        }],
+        },
         sort: {
             lastName: -1,
             firstName: -1
