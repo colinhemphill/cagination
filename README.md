@@ -9,7 +9,7 @@ Use Case
     var options = {
         actorId: nicCage._id
     };
-    
+
     Film.find(options).select('name actorId').populate({
         path: 'actorId',
         select: 'lastName'
@@ -21,6 +21,7 @@ Use Case
             // return stars and totalPages
         });
     });
+
     
 NOT THE PAGES! NOT THE PAGES! AGWHGHAHGHAA THEY'RE CLOGGING MY CODE!
     
@@ -35,7 +36,7 @@ Caginate aims to be robust but reproducible. Like your standard find() query, Ca
     var options = {
         firstName: 'Nicolas'
     };
-    
+
     caginate(Film, {
         options: options,
         select: 'name actorId',
