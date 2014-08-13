@@ -62,9 +62,9 @@ Get the source from [GitHub](https://github.com/hemphillcc/cagination) or instal
 
 Make sure to add:
 
-    var caginate = require('caginate').find();
+    var caginate = require('caginate').find;
     
-and you should be set. At any time you want paginated results, replace your Mongoose ''Model.find(query, callback)'' with ''caginate(Model, query, callback)''.
+and you should be set. At any time you want paginated results, replace your Mongoose ``Model.find(query, callback)`` with ``caginate(Model, query, callback)``.
 
 The Caginate query is an object consisting of:
 
