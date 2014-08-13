@@ -8,46 +8,40 @@ describe('find test', function() {
   var result = true;
 
   beforeEach(function(done) {
-    var MovieStar = exampleSchema.MovieStar;
+    var Actor = exampleSchema.Actor;
     var Film = exampleSchema.Film;
 
     // start fresh
-    MovieStar.remove({}, function() {
+    Actor.remove({}, function() {
       Film.remove({}, function() {
 
-        var films = [{
-          name: 'Raising Arizona',
-          releaseDate: Date.UTC(1987, 2, 13)
-        }, {
-          name: 'National Treasure',
-          releaseDate: Date.UTC(2004, 10, 19)
-        }, {
-          name: 'Lord of War',
-          releaseDate: Date.UTC(2005, 8, 16)
-        }, {
-          name: 'The Wicker Man',
-          releaseDate: Date.UTC(2006, 8, 1)
-        }, {
-          name: 'Ghost Rider',
-          releaseDate: Date.UTC(2007, 1, 16)
-        }, {
-          name: 'Kick Ass',
-          releaseDate: Date.UTC(2010, 3, 16)
-        }];
+        var nicCage = new Actor({
+          firstName: 'Nicolas',
+          lastName: 'Cage'
+        });
 
-        Film.create(films, function(err, createdFilms) {
-
-          var nicCage = new MovieStar({
-            firstName: 'Nicolas',
-            lastName: 'Cage'
+        nicCage.save(function(err) {
+          var films = getFilms(nicCage._id);
+          Film.create(films, function(err, createdFilms) {
+            cagination.find(Film, {
+              options: {
+                actorId: nicCage._id
+              },
+              select: 'name actorId',
+              populate: {
+                path: 'actorId',
+                select: 'lastName'
+              },
+              sort: {
+                name: 1
+              }
+            }, function(err, films, count, totalPages) {
+              console.log('result::', err, films, count, totalPages);
+            });
           });
-
-          nicCage.save();
-
         });
       });
     });
-
   });
 
   it('finds paginated MongoDB models using Mongoose', function() {
@@ -55,3 +49,33 @@ describe('find test', function() {
   });
 
 });
+
+
+function getFilms(actorId) {
+  var films = [{
+    name: 'Raising Arizona',
+    releaseDate: Date.UTC(1987, 2, 13),
+    actorId: actorId
+  }, {
+    name: 'National Treasure',
+    releaseDate: Date.UTC(2004, 10, 19),
+    actorId: actorId
+  }, {
+    name: 'Lord of War',
+    releaseDate: Date.UTC(2005, 8, 16),
+    actorId: actorId
+  }, {
+    name: 'The Wicker Man',
+    releaseDate: Date.UTC(2006, 8, 1),
+    actorId: actorId
+  }, {
+    name: 'Ghost Rider',
+    releaseDate: Date.UTC(2007, 1, 16),
+    actorId: actorId
+  }, {
+    name: 'Kick Ass',
+    releaseDate: Date.UTC(2010, 3, 16),
+    actorId: actorId
+  }];
+  return films;
+}

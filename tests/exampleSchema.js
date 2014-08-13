@@ -4,23 +4,23 @@ var Schema = mongoose.Schema;
 mongoose.connect('mongodb://localhost/cagination_test_db');
 var db = mongoose.connection;
 
-exports.MovieStar = mongoose.model('MovieStar', new Schema({
+exports.Actor = mongoose.model('Actor', new Schema({
   updatedAt: {
     type: Date,
     default: Date.now
   },
   firstName: String,
-  lastName: String,
-  films: [{
-    type: Schema.ObjectId,
-    ref: 'Film'
-  }]
+  lastName: String
 }));
 
 exports.Film = mongoose.model('Film', new Schema({
   updatedAt: {
     type: Date,
     default: Date.now
+  },
+  actorId: {
+    type: Schema.ObjectId,
+    ref: 'Actor'
   },
   name: String,
   releaseDate: Date

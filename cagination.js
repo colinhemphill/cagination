@@ -1,5 +1,6 @@
 /* Requirements */
 require('mongoose');
+require('async');
 
 /* Defaults */
 var currentPage = 1;
@@ -16,8 +17,21 @@ module.exports = {
    * @param  {Object} options
    * @return {Object}
    */
-  find: function(model, options) {
-    console.log(model, options);
+  find: function(model, params, fn) {
+
+    model.find(params.options)
+      .select(params.select)
+      .populate(params.populate)
+      .sort(params.sort)
+
+    .exec(function(err, documents) {
+      if (err) {
+        return fn(err, null, null, null);
+      }
+
+      return fn(null, documents, 0, 0);
+    });
+
     return true;
   }
 };
