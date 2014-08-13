@@ -1,0 +1,32 @@
+{
+  "name": "cagination",
+  "version": "0.1.0",
+  "description": "You just put the pages, in the right order!",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:hemphillcc/cagination.git"
+  },
+  "keywords": [
+    "paginate",
+    "paging",
+    "pagination",
+    "caginate",
+    "cagination",
+    "pages",
+    "mongoose",
+    "mongodb"
+  ],
+  "author": "Bomb Shelter Software",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^3.8.14"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4"
+  }
+}
