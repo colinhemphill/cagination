@@ -34,7 +34,8 @@ describe('find test', function() {
               },
               sort: {
                 name: 1
-              }
+              },
+              currentPage: 1
             }, function(err, films, count, totalPages) {
               console.log('result::', err, films, count, totalPages);
             });

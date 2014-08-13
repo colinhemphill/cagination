@@ -1,10 +1,11 @@
 /* Requirements */
-require('mongoose');
-require('async');
+var mongoose = require('mongoose');
+var async = require('async');
 
 /* Defaults */
-var currentPage = 1;
-var perPage = 25;
+var defaults = {
+  perPage: 25
+};
 
 /* Exports */
 module.exports = {
@@ -19,19 +20,56 @@ module.exports = {
    */
   find: function(model, params, fn) {
 
-    model.find(params.options)
-      .select(params.select)
-      .populate(params.populate)
-      .sort(params.sort)
+    if (!params.currentPage) {
+      return fn('caginate err: current page not provided.', null, null, null);
+    }
 
-    .exec(function(err, documents) {
+    var perPage;
+    if (params.perPage) {
+      perPage = params.perPage;
+    } else {
+      perPage = defaults.perPage;
+    }
+
+    async.parallel({
+
+      // find the paginated documents in parallel
+      findDocuments: function(callback) {
+        model.find(params.options)
+          .select(params.select)
+          .populate(params.populate)
+          .sort(params.sort)
+          .skip((params.currentPage - 1) * perPage)
+          .limit(perPage)
+
+        .exec(function(err, documents) {
+          if (err) {
+            return callback(err, null);
+          }
+
+          return callback(null, documents);
+        });
+      },
+
+      // count the total documents in parallerl
+      countDocuments: function(callback) {
+
+        model.count(params.options, function(err, count) {
+
+          var totalPages = Math.ceil(count / perPage);
+
+          return callback(null, {
+            count: count,
+            totalPages: totalPages
+          });
+        });
+      }
+
+    }, function(err, results) {
       if (err) {
         return fn(err, null, null, null);
       }
-
-      return fn(null, documents, 0, 0);
+      return fn(null, results.findDocuments, results.countDocuments.count, results.countDocuments.totalPages);
     });
-
-    return true;
   }
 };
