@@ -58,7 +58,7 @@ Caginate aims to be robust but reproducible. Like your standard find() query, Ca
 
 Get the source from [GitHub](https://github.com/hemphillcc/cagination) or install via NPM
 
-    npm install cagination
+    npm install cagination --save
 
 Make sure to add:
 
@@ -91,8 +91,12 @@ The Caginate callback will look something like:
         // totalPages - the total number of pages needed to fit all of the documents at 10 per page
     });
 
+## Version History
+
+* 0.1.0 Initial release
+
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
-[license-url]: LICENSE
+[license-url]: https://github.com/hemphillcc/cagination/blob/master/LICENSE
 
 [npm-url]: https://npmjs.org/package/cagination
 [npm-version-image]: http://img.shields.io/npm/v/cagination.svg?style=flat
