@@ -7,17 +7,16 @@ Use Case
     var currentPage = data.currentPage;
     var perPage = data.perPage;
     var options = {
-        firstName: 'Nicolas'
+        actorId: nicCage._id
     };
     
-    MovieStar.find(options).select('firstName lastName filmographyId').populate([{
-        path: 'filmographyId',
-        select: 'films credits roles'
-    }]).sort({
-        lastName: -1,
-        firstName: -1
+    Film.find(options).select('name actorId').populate({
+        path: 'actorId',
+        select: 'lastName'
+    }).sort({
+        name: -1
     }).skip((currentPage - 1) * perPage).limit(perPage).exec(function(err, stars) {
-        MovieStar.count(options).exec(function(err, count) {
+        Film.count(options).exec(function(err, count) {
             var totalPages = Math.ceil(count / perPage);
             // return stars and totalPages
         });
@@ -37,16 +36,15 @@ Caginate aims to be robust but reproducible. Like your standard find() query, Ca
         firstName: 'Nicolas'
     };
     
-    MovieStar.caginate({
+    caginate(Film, {
         options: options,
-        select: 'firstName lastName filmographyId',
-        populate: [{
-            path: 'filmographyId',
-            select: 'films credits roles'
-        }],
+        select: 'name actorId',
+        populate: {
+            path: 'actorId',
+            select: 'lastName'
+        },
         sort: {
-            lastName: -1,
-            firstName: -1
+            name: -1
         }
     }).exec(function(err, stars, count, totalPages) {
         // return stars and totalPages
