@@ -95,8 +95,8 @@ The Caginate callback will look something like:
 [license-url]: LICENSE
 
 [npm-url]: https://npmjs.org/package/cagination
-[npm-version-image]: http://img.shields.io/npm/v/moment.svg?style=flat
-[npm-downloads-image]: http://img.shields.io/npm/dm/moment.svg?style=flat
+[npm-version-image]: http://img.shields.io/npm/v/cagination.svg?style=flat
+[npm-downloads-image]: http://img.shields.io/npm/dm/cagination.svg?style=flat
 
-[travis-url]: http://travis-ci.org/moment/moment
-[travis-image]: http://img.shields.io/travis/moment/moment/develop.svg?style=flat
+[travis-url]: http://travis-ci.org/hemphillcc/cagination
+[travis-image]: http://img.shields.io/travis/hemphillcc/cagination/develop.svg?style=flat
