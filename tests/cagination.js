@@ -5,53 +5,126 @@ var exampleSchema = require('./exampleSchema');
 
 describe('find test', function() {
 
-  var result = false;
+  var Actor = exampleSchema.Actor;
+  var Film = exampleSchema.Film;
 
-  beforeEach(function(done) {
-    var Actor = exampleSchema.Actor;
-    var Film = exampleSchema.Film;
+  var nicCage = new Actor({
+    firstName: 'Nicolas',
+    lastName: 'Cage'
+  });
+
+  var options = {
+    actorId: nicCage._id
+  };
+  var populateOptions = {
+    path: 'actorId',
+    select: 'lastName'
+  };
+  var sortOptions = {
+    name: 1
+  };
+
+  before(function(done) {
 
     // start fresh
     Actor.remove({}, function() {
       Film.remove({}, function() {
-
-        var nicCage = new Actor({
-          firstName: 'Nicolas',
-          lastName: 'Cage'
-        });
-
         nicCage.save(function(err) {
           var films = getFilms(nicCage._id);
           Film.create(films, function(err, createdFilms) {
-            cagination.find(Film, {
-              options: {
-                actorId: nicCage._id
-              },
-              select: 'name actorId',
-              populate: {
-                path: 'actorId',
-                select: 'lastName'
-              },
-              sort: {
-                name: 1
-              },
-              currentPage: 1
-            }, function(err, films, count, totalPages) {
-              if (err) {
-                result = false;
-              } else if (films && count && totalPages) {
-                result = true;
-              }
-              done();
-            });
+            done();
           });
         });
       });
     });
   });
 
-  it('finds paginated MongoDB models using Mongoose', function() {
-    expect(result).equals(true);
+  // test 1st page
+  it('Get page 1 of results given 2 per page', function() {
+    var result = false;
+
+    cagination.find(Film, {
+      options: options,
+      select: 'name actorId',
+      populate: populateOptions,
+      sort: sortOptions,
+      perPage: 2,
+      currentPage: 1
+    }, function(err, films, count, totalPages) {
+      console.log(err, films, count, totalPages);
+      if (err) {
+        result = false;
+      } else if (films && count && totalPages) {
+        result = true;
+      }
+      expect(result).equals(true);
+    });
+  });
+
+  // test 2nd page
+  it('Get page 2 of results given 2 per page', function() {
+    var result = false;
+
+    cagination.find(Film, {
+      options: options,
+      select: 'name actorId',
+      populate: populateOptions,
+      sort: sortOptions,
+      perPage: 2,
+      currentPage: 2
+    }, function(err, films, count, totalPages) {
+      console.log(err, films, count, totalPages);
+      if (err) {
+        result = false;
+      } else if (films && count && totalPages) {
+        result = true;
+      }
+      expect(result).equals(true);
+    });
+  });
+
+  // test 3rd page
+  it('Get page 3 of results given 2 per page', function() {
+    var result = false;
+
+    cagination.find(Film, {
+      options: options,
+      select: 'name actorId',
+      populate: populateOptions,
+      sort: sortOptions,
+      perPage: 2,
+      currentPage: 3
+    }, function(err, films, count, totalPages) {
+      console.log(err, films, count, totalPages);
+      if (err) {
+        result = false;
+      } else if (films && count && totalPages) {
+        result = true;
+      }
+      expect(result).equals(true);
+    });
+  });
+
+  // test 4th page
+  it('Get page 4 of results given 2 per page', function() {
+    var result = false;
+
+    cagination.find(Film, {
+      options: options,
+      select: 'name actorId',
+      populate: populateOptions,
+      sort: sortOptions,
+      perPage: 2,
+      currentPage: 4
+    }, function(err, films, count, totalPages) {
+      console.log(err, films, count, totalPages);
+      if (err) {
+        result = false;
+      } else if (films && count && totalPages) {
+        result = true;
+      }
+      expect(result).equals(true);
+    });
   });
 
 });

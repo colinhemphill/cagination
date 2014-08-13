@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/cagination_test_db');
-var db = mongoose.connection;
+mongoose.connect('mongodb://localhost/cagination_test_db', function(err) {
+  if (err) throw err;
+});
 
 exports.Actor = mongoose.model('Actor', new Schema({
   updatedAt: {
