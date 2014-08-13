@@ -1,14 +1,14 @@
 {
   "name": "cagination",
   "version": "0.1.0",
-  "description": "You just put the pages, in the right order!",
-  "main": "index.js",
+  "description": "A Mongoose helper to simplify the pagination process.",
+  "main": "cagination.js",
   "scripts": {
     "test": "grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:hemphillcc/cagination.git"
+    "url": "git://github.com/hemphillcc/cagination.git"
   },
   "keywords": [
     "paginate",
@@ -20,8 +20,11 @@
     "mongoose",
     "mongodb"
   ],
-  "author": "Bomb Shelter Software",
+  "author": "Colin Hemphill <colin@bombsheltersoftware.com> (http://bombsheltersoftware.com/)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hemphillcc/cagination/issues"
+  },
   "dependencies": {
     "async": "^0.9.0",
     "mongoose": "^3.8.14"
