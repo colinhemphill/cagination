@@ -24,6 +24,10 @@ module.exports = {
       return fn('caginate err: current page not provided.', null, null, null);
     }
 
+    if (!params.populate) {
+      params.populate = '';
+    }
+
     var perPage;
     if (params.perPage) {
       perPage = params.perPage;
@@ -53,7 +57,7 @@ module.exports = {
         });
       },
 
-      // count the total documents in parallerl
+      // count the total documents in parallel
       countDocuments: function(callback) {
 
         model.count(params.options, function(err, count) {

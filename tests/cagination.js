@@ -16,6 +16,7 @@ describe('find test', function() {
   var options = {
     actorId: nicCage._id
   };
+  var selectOptions = 'name actorId';
   var populateOptions = {
     path: 'actorId',
     select: 'lastName'
@@ -24,9 +25,8 @@ describe('find test', function() {
     name: 1
   };
 
+  // start with fresh database
   before(function(done) {
-
-    // start fresh
     Actor.remove({}, function() {
       Film.remove({}, function() {
         nicCage.save(function(err) {
@@ -45,7 +45,7 @@ describe('find test', function() {
 
     cagination.find(Film, {
       options: options,
-      select: 'name actorId',
+      select: selectOptions,
       populate: populateOptions,
       sort: sortOptions,
       perPage: 2,
@@ -67,7 +67,7 @@ describe('find test', function() {
 
     cagination.find(Film, {
       options: options,
-      select: 'name actorId',
+      select: selectOptions,
       populate: populateOptions,
       sort: sortOptions,
       perPage: 2,
@@ -89,7 +89,7 @@ describe('find test', function() {
 
     cagination.find(Film, {
       options: options,
-      select: 'name actorId',
+      select: selectOptions,
       populate: populateOptions,
       sort: sortOptions,
       perPage: 2,
@@ -111,7 +111,7 @@ describe('find test', function() {
 
     cagination.find(Film, {
       options: options,
-      select: 'name actorId',
+      select: selectOptions,
       populate: populateOptions,
       sort: sortOptions,
       perPage: 2,
