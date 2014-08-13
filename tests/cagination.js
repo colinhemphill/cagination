@@ -5,7 +5,7 @@ var exampleSchema = require('./exampleSchema');
 
 describe('find test', function() {
 
-  var result = true;
+  var result = false;
 
   beforeEach(function(done) {
     var Actor = exampleSchema.Actor;
@@ -37,7 +37,12 @@ describe('find test', function() {
               },
               currentPage: 1
             }, function(err, films, count, totalPages) {
-              console.log('result::', err, films, count, totalPages);
+              if (err) {
+                result = false;
+              } else if (films && count && totalPages) {
+                result = true;
+              }
+              done();
             });
           });
         });

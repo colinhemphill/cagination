@@ -45,6 +45,8 @@ module.exports = {
         .exec(function(err, documents) {
           if (err) {
             return callback(err, null);
+          } else if (!documents) {
+            return callback('Error finding paginated documents', null);
           }
 
           return callback(null, documents);
@@ -55,6 +57,11 @@ module.exports = {
       countDocuments: function(callback) {
 
         model.count(params.options, function(err, count) {
+          if (err) {
+            return callback(err, null);
+          } else if (count == null || count == undefined) {
+            return callback('Error counting total documents', null);
+          }
 
           var totalPages = Math.ceil(count / perPage);
 
