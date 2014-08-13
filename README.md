@@ -46,7 +46,9 @@ Caginate aims to be robust but reproducible. Like your standard find() query, Ca
         },
         sort: {
             name: -1
-        }
+        },
+        perPage: perPage,
+        currentPage: currentPage
     }).exec(function(err, stars, count, totalPages) {
         // return stars and totalPages
     });
