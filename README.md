@@ -95,12 +95,12 @@ The Caginate callback will look something like:
 
 * 0.1.0 Initial release
 
-[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [license-url]: https://github.com/hemphillcc/cagination/blob/master/LICENSE
 
+[npm-version-image]: http://img.shields.io/npm/v/cagination.svg?style=flat-square
+[npm-downloads-image]: http://img.shields.io/npm/dm/cagination.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/cagination
-[npm-version-image]: http://img.shields.io/npm/v/cagination.svg?style=flat
-[npm-downloads-image]: http://img.shields.io/npm/dm/cagination.svg?style=flat
 
+[travis-image]: http://img.shields.io/travis/hemphillcc/cagination.svg?style=flat-square
 [travis-url]: http://travis-ci.org/hemphillcc/cagination
-[travis-image]: http://img.shields.io/travis/hemphillcc/cagination/develop.svg?style=flat
