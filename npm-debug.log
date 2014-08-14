@@ -1,0 +1,144 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.4.9
+3 info using node@v0.10.28
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /home/colin/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/home/colin/tmp/npm-19440-usrkBt6i/1407972071567-0.64959538099356/tmp.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball /home/colin/tmp/npm-19440-usrkBt6i/1407972071567-0.64959538099356/tmp.tgz
+12 verbose folder .
+13 info prepublish cagination@0.1.0
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /home/colin/.npm/1f1177db-tar.lock
+16 silly lockFile 847eef2e-2071567-0-64959538099356-tmp-tgz tar:///home/colin/tmp/npm-19440-usrkBt6i/1407972071567-0.64959538099356/tmp.tgz
+17 verbose lock tar:///home/colin/tmp/npm-19440-usrkBt6i/1407972071567-0.64959538099356/tmp.tgz /home/colin/.npm/847eef2e-2071567-0-64959538099356-tmp-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 847eef2e-2071567-0-64959538099356-tmp-tgz tar:///home/colin/tmp/npm-19440-usrkBt6i/1407972071567-0.64959538099356/tmp.tgz
+21 silly lockFile 847eef2e-2071567-0-64959538099356-tmp-tgz tar:///home/colin/tmp/npm-19440-usrkBt6i/1407972071567-0.64959538099356/tmp.tgz
+22 verbose tar unpack /home/colin/tmp/npm-19440-usrkBt6i/1407972071567-0.64959538099356/tmp.tgz
+23 silly lockFile d6bafb3e-lin-npm-cagination-0-1-0-package tar:///home/colin/.npm/cagination/0.1.0/package
+24 verbose lock tar:///home/colin/.npm/cagination/0.1.0/package /home/colin/.npm/d6bafb3e-lin-npm-cagination-0-1-0-package.lock
+25 silly lockFile 847eef2e-2071567-0-64959538099356-tmp-tgz tar:///home/colin/tmp/npm-19440-usrkBt6i/1407972071567-0.64959538099356/tmp.tgz
+26 verbose lock tar:///home/colin/tmp/npm-19440-usrkBt6i/1407972071567-0.64959538099356/tmp.tgz /home/colin/.npm/847eef2e-2071567-0-64959538099356-tmp-tgz.lock
+27 silly gunzTarPerm modes [ '755', '644' ]
+28 silly gunzTarPerm extractEntry package.json
+29 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+30 silly gunzTarPerm extractEntry README.md
+31 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+32 silly gunzTarPerm extractEntry LICENSE
+33 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+34 silly gunzTarPerm extractEntry Gruntfile.js
+35 silly gunzTarPerm modified mode [ 'Gruntfile.js', 438, 420 ]
+36 silly gunzTarPerm extractEntry cagination.js
+37 silly gunzTarPerm modified mode [ 'cagination.js', 436, 420 ]
+38 silly gunzTarPerm extractEntry .travis.yml
+39 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+40 silly gunzTarPerm extractEntry gitignore
+41 silly gunzTarPerm modified mode [ 'gitignore', 438, 420 ]
+42 silly gunzTarPerm extractEntry tests/cagination.js
+43 silly gunzTarPerm modified mode [ 'tests/cagination.js', 438, 420 ]
+44 silly gunzTarPerm extractEntry tests/exampleSchema.js
+45 silly gunzTarPerm modified mode [ 'tests/exampleSchema.js', 438, 420 ]
+46 silly lockFile d6bafb3e-lin-npm-cagination-0-1-0-package tar:///home/colin/.npm/cagination/0.1.0/package
+47 silly lockFile d6bafb3e-lin-npm-cagination-0-1-0-package tar:///home/colin/.npm/cagination/0.1.0/package
+48 silly lockFile 847eef2e-2071567-0-64959538099356-tmp-tgz tar:///home/colin/tmp/npm-19440-usrkBt6i/1407972071567-0.64959538099356/tmp.tgz
+49 silly lockFile 847eef2e-2071567-0-64959538099356-tmp-tgz tar:///home/colin/tmp/npm-19440-usrkBt6i/1407972071567-0.64959538099356/tmp.tgz
+50 silly lockFile 3a52ce78- .
+51 silly lockFile 3a52ce78- .
+52 silly publish { name: 'cagination',
+52 silly publish   version: '0.1.0',
+52 silly publish   description: 'A Mongoose helper to simplify the pagination process.',
+52 silly publish   main: 'cagination.js',
+52 silly publish   scripts: { test: 'grunt test' },
+52 silly publish   repository:
+52 silly publish    { type: 'git',
+52 silly publish      url: 'git://github.com/hemphillcc/cagination.git' },
+52 silly publish   keywords:
+52 silly publish    [ 'paginate',
+52 silly publish      'paging',
+52 silly publish      'pagination',
+52 silly publish      'caginate',
+52 silly publish      'cagination',
+52 silly publish      'pages',
+52 silly publish      'mongoose',
+52 silly publish      'mongodb' ],
+52 silly publish   author:
+52 silly publish    { name: 'Colin Hemphill',
+52 silly publish      email: 'colin@bombsheltersoftware.com',
+52 silly publish      url: 'http://bombsheltersoftware.com/' },
+52 silly publish   license: 'MIT',
+52 silly publish   licenses:
+52 silly publish    { type: 'MIT',
+52 silly publish      url: 'https://github.com/hemphillcc/cagination/blob/master/LICENSE' },
+52 silly publish   bugs: { url: 'https://github.com/hemphillcc/cagination/issues' },
+52 silly publish   dependencies: { async: '^0.9.0', mongoose: '^3.8.14' },
+52 silly publish   devDependencies:
+52 silly publish    { chai: '^1.9.1',
+52 silly publish      grunt: '^0.4.5',
+52 silly publish      'grunt-simple-mocha': '^0.4.0',
+52 silly publish      mocha: '^1.21.4' },
+52 silly publish   readme: '[![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] [![Build Status][travis-image]][travis-url]\r\n\r\n# Cagination\r\n\r\nA Mongoose helper to simplify the pagination process.\r\n\r\n## Use Case\r\n    var currentPage = data.currentPage;\r\n    var perPage = data.perPage;\r\n    var options = {\r\n        actorId: nicCage._id\r\n    };\r\n\r\n    Film.find(options).select(\'name actorId\').populate({\r\n        path: \'actorId\',\r\n        select: \'lastName\'\r\n    }).sort({\r\n        name: -1\r\n    }).skip((currentPage - 1) * perPage).limit(perPage).exec(function(err, stars) {\r\n        Film.count(options).exec(function(err, count) {\r\n            var totalPages = Math.ceil(count / perPage);\r\n            // return stars and totalPages\r\n        });\r\n    });\r\n\r\n    \r\nNOT THE PAGES! NOT THE PAGES! AGWHGHAHGHAA THEY\'RE CLOGGING MY CODE!\r\n    \r\nOf course this is quite a mess, and painful to rewrite for each query you need paginated. Although the .count() procedure is pretty quick, to make this really efficient, you would need to also utilize the async module and perform that operation in parallel with the find(). But then you have a real disaster on your hands for such a simple task.\r\n\r\n## The Cage Rage\r\n\r\nCaginate aims to be robust but reproducible. Like your standard find() query, Caginate can accept the same options for select, populate, and sort. However, Caginate handles all of the bothersome math and manual skipping/limiting needed to get a paginated return. Additionally, it asynchronously grabs the total document count in order to provide you with the total number of pages.\r\n\r\n    var currentPage = data.currentPage;\r\n    var perPage = data.perPage;\r\n    var options = {\r\n        firstName: \'Nicolas\'\r\n    };\r\n\r\n    caginate(Film, {\r\n        options: options,\r\n        select: \'name actorId\',\r\n        populate: {\r\n            path: \'actorId\',\r\n            select: \'lastName\'\r\n        },\r\n        sort: {\r\n            name: -1\r\n        },\r\n        perPage: perPage,\r\n        currentPage: currentPage\r\n    }).exec(function(err, stars, count, totalPages) {\r\n        // return stars and totalPages\r\n    });\r\n\r\n### Setup and Options\r\n\r\nGet the source from [GitHub](https://github.com/hemphillcc/cagination) or install via NPM\r\n\r\n    npm install cagination --save\r\n\r\nMake sure to add:\r\n\r\n    var caginate = require(\'caginate\').find;\r\n    \r\nand you should be set. At any time you want paginated results, replace your Mongoose ``Model.find(query, callback)`` with ``caginate(Model, query, callback)``.\r\n\r\nThe Caginate query is an object consisting of:\r\n\r\n* options (optional)\r\n* select (optional)\r\n* populate (optional)\r\n* sort (optional)\r\n* perPage (optional - defaults to 25 - how many documents to get back per page)\r\n* currentPage (required - the page to retrieve documents for)\r\n\r\n### Callback\r\n\r\nThe Caginate callback will look something like:\r\n\r\n    caginate(Model, {\r\n        perPage: 10,\r\n        currentPage: 1\r\n    }, function(err, documents, count, totalPages) {\r\n        if(err) {\r\n            // handle the Mongoose error\r\n        }\r\n        // documents - documents matching query but limited by perPage\r\n        // count - the total number of documents matching your query\r\n        // totalPages - the total number of pages needed to fit all of the documents at 10 per page\r\n    });\r\n\r\n## Version History\r\n\r\n* 0.1.0 Initial release\r\n\r\n[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat\r\n[license-url]: https://github.com/hemphillcc/cagination/blob/master/LICENSE\r\n\r\n[npm-url]: https://npmjs.org/package/cagination\r\n[npm-version-image]: http://img.shields.io/npm/v/cagination.svg?style=flat\r\n[npm-downloads-image]: http://img.shields.io/npm/dm/cagination.svg?style=flat\r\n\r\n[travis-url]: http://travis-ci.org/hemphillcc/cagination\r\n[travis-image]: http://img.shields.io/travis/hemphillcc/cagination/develop.svg?style=flat',
+52 silly publish   readmeFilename: 'README.md',
+52 silly publish   homepage: 'https://github.com/hemphillcc/cagination',
+52 silly publish   _id: 'cagination@0.1.0',
+52 silly publish   _shasum: '289a741db9c099dfea48a36f120b192800a950d8',
+52 silly publish   _from: '.' }
+53 verbose url raw cagination
+54 verbose url resolving [ 'https://registry.npmjs.org/', './cagination' ]
+55 verbose url resolved https://registry.npmjs.org/cagination
+56 info trying registry request attempt 1 at 18:21:11
+57 http PUT https://registry.npmjs.org/cagination
+58 http 403 https://registry.npmjs.org/cagination
+59 verbose headers { date: 'Wed, 13 Aug 2014 23:21:12 GMT',
+59 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+59 verbose headers   'content-type': 'application/json',
+59 verbose headers   'cache-control': 'max-age=60',
+59 verbose headers   'content-length': '8131',
+59 verbose headers   'accept-ranges': 'bytes',
+59 verbose headers   via: '1.1 varnish',
+59 verbose headers   'x-served-by': 'cache-dfw1823-DFW',
+59 verbose headers   'x-cache': 'MISS',
+59 verbose headers   'x-cache-hits': '0',
+59 verbose headers   'x-timer': 'S1407972071.958311,VS0,VE327',
+59 verbose headers   'keep-alive': 'timeout=10, max=50',
+59 verbose headers   connection: 'Keep-Alive' }
+60 error publish Failed PUT 403
+61 error Error: forbidden cannot modify pre-existing version: 0.1.0
+61 error old={"name":"cagination","version":"0.1.0","description":"A Mongoose helper to simplify the pagination process.","main":"cagination.js","scripts":{"test":"grunt test"},"repository":{"type":"git","url":"git://github.com/hemphillcc/cagination.git"},"keywords":["paginate","paging","pagination","caginate","cagination","pages","mongoose","mongodb"],"author":{"name":"Colin Hemphill","email":"colin@bombsheltersoftware.com","url":"http://bombsheltersoftware.com/"},"license":"MIT","licenses":{"type":"MIT","url":"https://github.com/hemphillcc/cagination/blob/master/LICENSE"},"bugs":{"url":"https://github.com/hemphillcc/cagination/issues"},"dependencies":{"async":"^0.9.0","mongoose":"^3.8.14"},"devDependencies":{"chai":"^1.9.1","grunt":"^0.4.5","grunt-simple-mocha":"^0.4.0","mocha":"^1.21.4"},"homepage":"https://github.com/hemphillcc/cagination","_id":"cagination@0.1.0","_shasum":"983ac7858c60e27a7d60417cb25e42b413c5a396","_from":".","_npmVersion":"1.4.9","_npmUser":{"name":"hemphillcc","email":"colin@bombsheltersoftware.com"},"maintainers":[{"name":"hemphillcc","email":"colin@bombsheltersoftware.com"}],"dist":{"shasum":"983ac7858c60e27a7d60417cb25e42b413c5a396","tarball":"http://registry.npmjs.org/cagination/-/cagination-0.1.0.tgz"}}
+61 error new={"name":"cagination","version":"0.1.0","description":"A Mongoose helper to simplify the pagination process.","main":"cagination.js","scripts":{"test":"grunt test"},"repository":{"type":"git","url":"git://github.com/hemphillcc/cagination.git"},"keywords":["paginate","paging","pagination","caginate","cagination","pages","mongoose","mongodb"],"author":{"name":"Colin Hemphill","email":"colin@bombsheltersoftware.com","url":"http://bombsheltersoftware.com/"},"license":"MIT","licenses":{"type":"MIT","url":"https://github.com/hemphillcc/cagination/blob/master/LICENSE"},"bugs":{"url":"https://github.com/hemphillcc/cagination/issues"},"dependencies":{"async":"^0.9.0","mongoose":"^3.8.14"},"devDependencies":{"chai":"^1.9.1","grunt":"^0.4.5","grunt-simple-mocha":"^0.4.0","mocha":"^1.21.4"},"readme":"[![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] [![Build Status][travis-image]][travis-url]\u000d\u000a\u000d\u000a# Cagination\u000d\u000a\u000d\u000aA Mongoose helper to simplify the pagination process.\u000d\u000a\u000d\u000a## Use Case\u000d\u000a    var currentPage = data.currentPage;\u000d\u000a    var perPage = data.perPage;\u000d\u000a    var options = {\u000d\u000a        actorId: nicCage._id\u000d\u000a    };\u000d\u000a\u000d\u000a    Film.find(options).select('name actorId').populate({\u000d\u000a        path: 'actorId',\u000d\u000a        select: 'lastName'\u000d\u000a    }).sort({\u000d\u000a        name: -1\u000d\u000a    }).skip((currentPage - 1) * perPage).limit(perPage).exec(function(err, stars) {\u000d\u000a        Film.count(options).exec(function(err, count) {\u000d\u000a            var totalPages = Math.ceil(count / perPage);\u000d\u000a            // return stars and totalPages\u000d\u000a        });\u000d\u000a    });\u000d\u000a\u000d\u000a    \u000d\u000aNOT THE PAGES! NOT THE PAGES! AGWHGHAHGHAA THEY'RE CLOGGING MY CODE!\u000d\u000a    \u000d\u000aOf course this is quite a mess, and painful to rewrite for each query you need paginated. Although the .count() procedure is pretty quick, to make this really efficient, you would need to also utilize the async module and perform that operation in parallel with the find(). But then you have a real disaster on your hands for such a simple task.\u000d\u000a\u000d\u000a## The Cage Rage\u000d\u000a\u000d\u000aCaginate aims to be robust but reproducible. Like your standard find() query, Caginate can accept the same options for select, populate, and sort. However, Caginate handles all of the bothersome math and manual skipping/limiting needed to get a paginated return. Additionally, it asynchronously grabs the total document count in order to provide you with the total number of pages.\u000d\u000a\u000d\u000a    var currentPage = data.currentPage;\u000d\u000a    var perPage = data.perPage;\u000d\u000a    var options = {\u000d\u000a        firstName: 'Nicolas'\u000d\u000a    };\u000d\u000a\u000d\u000a    caginate(Film, {\u000d\u000a        options: options,\u000d\u000a        select: 'name actorId',\u000d\u000a        populate: {\u000d\u000a            path: 'actorId',\u000d\u000a            select: 'lastName'\u000d\u000a        },\u000d\u000a        sort: {\u000d\u000a            name: -1\u000d\u000a        },\u000d\u000a        perPage: perPage,\u000d\u000a        currentPage: currentPage\u000d\u000a    }).exec(function(err, stars, count, totalPages) {\u000d\u000a        // return stars and totalPages\u000d\u000a    });\u000d\u000a\u000d\u000a### Setup and Options\u000d\u000a\u000d\u000aGet the source from [GitHub](https://github.com/hemphillcc/cagination) or install via NPM\u000d\u000a\u000d\u000a    npm install cagination --save\u000d\u000a\u000d\u000aMake sure to add:\u000d\u000a\u000d\u000a    var caginate = require('caginate').find;\u000d\u000a    \u000d\u000aand you should be set. At any time you want paginated results, replace your Mongoose ``Model.find(query, callback)`` with ``caginate(Model, query, callback)``.\u000d\u000a\u000d\u000aThe Caginate query is an object consisting of:\u000d\u000a\u000d\u000a* options (optional)\u000d\u000a* select (optional)\u000d\u000a* populate (optional)\u000d\u000a* sort (optional)\u000d\u000a* perPage (optional - defaults to 25 - how many documents to get back per page)\u000d\u000a* currentPage (required - the page to retrieve documents for)\u000d\u000a\u000d\u000a### Callback\u000d\u000a\u000d\u000aThe Caginate callback will look something like:\u000d\u000a\u000d\u000a    caginate(Model, {\u000d\u000a        perPage: 10,\u000d\u000a        currentPage: 1\u000d\u000a    }, function(err, documents, count, totalPages) {\u000d\u000a        if(err) {\u000d\u000a            // handle the Mongoose error\u000d\u000a        }\u000d\u000a        // documents - documents matching query but limited by perPage\u000d\u000a        // count - the total number of documents matching your query\u000d\u000a        // totalPages - the total number of pages needed to fit all of the documents at 10 per page\u000d\u000a    });\u000d\u000a\u000d\u000a## Version History\u000d\u000a\u000d\u000a* 0.1.0 Initial release\u000d\u000a\u000d\u000a[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat\u000d\u000a[license-url]: https://github.com/hemphillcc/cagination/blob/master/LICENSE\u000d\u000a\u000d\u000a[npm-url]: https://npmjs.org/package/cagination\u000d\u000a[npm-version-image]: http://img.shields.io/npm/v/cagination.svg?style=flat\u000d\u000a[npm-downloads-image]: http://img.shields.io/npm/dm/cagination.svg?style=flat\u000d\u000a\u000d\u000a[travis-url]: http://travis-ci.org/hemphillcc/cagination\u000d\u000a[travis-image]: http://img.shields.io/travis/hemphillcc/cagination/develop.svg?style=flat","readmeFilename":"README.md","homepage":"https://github.com/hemphillcc/cagination","_id":"cagination@0.1.0","_shasum":"289a741db9c099dfea48a36f120b192800a950d8","_from":".","_npmVersion":"1.4.9","_npmUser":{"name":"hemphillcc","email":"colin@bombsheltersoftware.com"},"maintainers":[{"name":"hemphillcc","email":"colin@bombsheltersoftware.com"}],"dist":{"shasum":"289a741db9c099dfea48a36f120b192800a950d8","tarball":"http://registry.npmjs.org/cagination/-/cagination-0.1.0.tgz"}}: cagination
+61 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:273:14)
+61 error     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:211:65)
+61 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:123:22)
+61 error     at Request.EventEmitter.emit (events.js:98:17)
+61 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:893:14)
+61 error     at Request.EventEmitter.emit (events.js:117:20)
+61 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:844:12)
+61 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+61 error     at _stream_readable.js:919:16
+61 error     at process._tickCallback (node.js:419:13)
+62 error If you need help, you may report this *entire* log,
+62 error including the npm and node versions, at:
+62 error     <http://github.com/npm/npm/issues>
+63 error System Linux 3.13.0-33-generic
+64 error command "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+65 error cwd /home/colin/Documents/personal/cagination
+66 error node -v v0.10.28
+67 error npm -v 1.4.9
+68 verbose exit [ 1, true ]

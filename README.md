@@ -16,21 +16,21 @@ A Mongoose helper to simplify the pagination process.
         select: 'lastName'
     }).sort({
         name: -1
-    }).skip((currentPage - 1) * perPage).limit(perPage).exec(function(err, stars) {
+    }).skip((currentPage - 1) * perPage).limit(perPage).exec(function(err, films) {
         Film.count(options).exec(function(err, count) {
             var totalPages = Math.ceil(count / perPage);
-            // return stars and totalPages
+            // return films and totalPages
         });
     });
 
     
 NOT THE PAGES! NOT THE PAGES! AGWHGHAHGHAA THEY'RE CLOGGING MY CODE!
     
-Of course this is quite a mess, and painful to rewrite for each query you need paginated. Although the .count() procedure is pretty quick, to make this really efficient, you would need to also utilize the async module and perform that operation in parallel with the find(). But then you have a real disaster on your hands for such a simple task.
+Of course this is quite a mess, and painful to rewrite for each query you need paginated. Although the .count() procedure is pretty quick, to make this really efficient, you would need to also utilize [async](https://github.com/caolan/async) to perform that operation in parallel with .find(). But then you have a real disaster on your hands for such a simple task.
 
 ## The Cage Rage Way
 
-Caginate aims to be robust but reproducible. Like your standard find() query, Caginate can accept the same options for select, populate, and sort. However, Caginate handles all of the bothersome math and manual skipping/limiting needed to get a paginated return. Additionally, it asynchronously grabs the total document count in order to provide you with the total number of pages.
+Caginate aims to be robust but reproducible. Like your standard find() query, Caginate can accept the same options for select, populate, and sort. However, Caginate handles all of the bothersome math and manual skipping/limiting needed to get a paginated return. Additionally, it asynchronously grabs the document count in order to provide you with the total number of pages.
 
     var currentPage = data.currentPage;
     var perPage = data.perPage;
@@ -50,8 +50,8 @@ Caginate aims to be robust but reproducible. Like your standard find() query, Ca
         },
         perPage: perPage,
         currentPage: currentPage
-    }).exec(function(err, stars, count, totalPages) {
-        // return stars and totalPages
+    }).exec(function(err, films, count, totalPages) {
+        // return films and totalPages
     });
 
 ### Setup and Options
@@ -88,7 +88,7 @@ The Caginate callback will look something like:
         }
         // documents - documents matching query but limited by perPage
         // count - the total number of documents matching your query
-        // totalPages - the total number of pages needed to fit all of the documents at 10 per page
+        // totalPages - pages needed to fit all of the documents at 10 per page
     });
 
 ## Version History
