@@ -1,6 +1,9 @@
 /* Requirements */
 var mongoose = require('mongoose');
 var async = require('async');
+var clc = require('cli-color');
+
+var warn = clc.yellow;
 
 /* Defaults */
 var defaults = {
@@ -21,7 +24,7 @@ module.exports = {
   find: function(model, params, fn) {
 
     if (!params.currentPage) {
-      return fn('caginate err: current page not provided.', null, null, null);
+      return fn('Caginate: you didn\'t provide the currentPage. I don\'t know where it went. I\'m confused!', null, null, null);
     }
 
     if (!params.populate) {
@@ -33,6 +36,7 @@ module.exports = {
       perPage = params.perPage;
     } else {
       perPage = defaults.perPage;
+      console.log(warn('\nCaginate defaulting to 25 documents per page.\n'));
     }
 
     async.parallel({
@@ -50,7 +54,7 @@ module.exports = {
           if (err) {
             return callback(err, null);
           } else if (!documents) {
-            return callback('Error finding paginated documents', null);
+            return callback('Error finding paginated documents.', null);
           }
 
           return callback(null, documents);
@@ -59,12 +63,11 @@ module.exports = {
 
       // count the total documents in parallel
       countDocuments: function(callback) {
-
         model.count(params.options, function(err, count) {
           if (err) {
             return callback(err, null);
           } else if (count == null || count == undefined) {
-            return callback('Error counting total documents', null);
+            return callback('Error counting total documents.', null);
           }
 
           var totalPages = Math.ceil(count / perPage);

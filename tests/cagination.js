@@ -2,6 +2,9 @@
 var expect = require('chai').expect;
 var cagination = require('../cagination');
 var exampleSchema = require('./exampleSchema');
+var clc = require('cli-color');
+
+var error = clc.red;
 
 describe('find test', function() {
 
@@ -51,8 +54,9 @@ describe('find test', function() {
       perPage: 2,
       currentPage: 1
     }, function(err, films, count, totalPages) {
-      console.log(err, films, count, totalPages);
+      console.log(films, count, totalPages);
       if (err) {
+        console.log(error(err.toString()));
         result = false;
       } else if (films && count && totalPages) {
         result = true;
@@ -73,8 +77,9 @@ describe('find test', function() {
       perPage: 2,
       currentPage: 2
     }, function(err, films, count, totalPages) {
-      console.log(err, films, count, totalPages);
+      console.log(films, count, totalPages);
       if (err) {
+        console.log(error(err.toString()));
         result = false;
       } else if (films && count && totalPages) {
         result = true;
@@ -95,8 +100,9 @@ describe('find test', function() {
       perPage: 2,
       currentPage: 3
     }, function(err, films, count, totalPages) {
-      console.log(err, films, count, totalPages);
+      console.log(films, count, totalPages);
       if (err) {
+        console.log(error(err.toString()));
         result = false;
       } else if (films && count && totalPages) {
         result = true;
@@ -117,8 +123,9 @@ describe('find test', function() {
       perPage: 2,
       currentPage: 4
     }, function(err, films, count, totalPages) {
-      console.log(err, films, count, totalPages);
+      console.log(films, count, totalPages);
       if (err) {
+        console.log(error(err.toString()));
         result = false;
       } else if (films && count && totalPages) {
         result = true;
