@@ -4,7 +4,10 @@
 
 A Mongoose helper to simplify the pagination process.
 
+If you are looking for a nice front-end component to interface with pagination, check out our AngularJS project [Cagination Angular](https://github.com/hemphillcc/cagination). These two projects integrate nicely for seamless, full stack pagination.
+
 ## The Old, Painful Way
+
     var currentPage = data.currentPage;
     var perPage = data.perPage;
     var options = {
