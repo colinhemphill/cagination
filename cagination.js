@@ -39,6 +39,8 @@ module.exports = {
       console.log(warn('\nCaginate defaulting to 25 documents per page.\n'));
     }
 
+    var lean = params.lean ? params.lean : false;
+
     async.parallel({
 
       // find the paginated documents in parallel
@@ -47,6 +49,7 @@ module.exports = {
           .select(params.select)
           .populate(params.populate)
           .sort(params.sort)
+          .lean(lean)
           .skip((params.currentPage - 1) * perPage)
           .limit(perPage)
 
