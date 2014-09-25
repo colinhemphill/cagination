@@ -97,6 +97,7 @@ The Caginate callback will look something like:
 
 ## Version History
 
+* 0.1.3 Module updates and tests
 * 0.1.2 Added ``lean`` option
 * 0.1.1 Documentation
 * 0.1.0 Initial release

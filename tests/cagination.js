@@ -52,6 +52,7 @@ describe('find test', function() {
       populate: populateOptions,
       sort: sortOptions,
       perPage: 2,
+      lean: true,
       currentPage: 1
     }, function(err, films, count, totalPages) {
       console.log(films, count, totalPages);
