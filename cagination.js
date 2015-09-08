@@ -45,7 +45,7 @@ module.exports = {
 
       // find the paginated documents in parallel
       findDocuments: function(callback) {
-        model.find(params.options)
+        model.find(params.options, params.meta)
           .select(params.select)
           .populate(params.populate)
           .sort(params.sort)

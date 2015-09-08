@@ -72,6 +72,7 @@ and you should be set. At any time you want paginated results, replace your Mong
 The Caginate query is an object consisting of:
 
 * options (optional)
+* meta (optional) - this field allows us to support an additional parameter on the Mongoose ``find``, such as ``{score : {$meta : 'textScore'}}`` for text searches
 * select (optional)
 * populate (optional)
 * sort (optional)
@@ -97,6 +98,7 @@ The Caginate callback will look something like:
 
 ## Version History
 
+* 0.1.5 Supports additional options on ``find``, in a new field called ``meta``
 * 0.1.4 Remove mongoose dependency. Update modules.
 * 0.1.3 Module updates and tests
 * 0.1.2 Added ``lean`` option
