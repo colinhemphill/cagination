@@ -98,6 +98,7 @@ The Caginate callback will look something like:
 
 ## Version History
 
+* 0.1.8 Syntax bugfix.
 * 0.1.7 Dependency updates. Parse integers for limits and skips.
 * 0.1.6 Dependency updates
 * 0.1.5 Supports additional options on ``find``, in a new field called ``meta``

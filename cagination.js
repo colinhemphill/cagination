@@ -31,7 +31,7 @@ module.exports = {
       params.populate = '';
     }
 
-    var perPage;
+    var perPage, currentPage;
     if (params.perPage) {
       perPage = params.perPage;
     } else {
@@ -39,8 +39,8 @@ module.exports = {
       console.log(warn('\nCaginate defaulting to 25 documents per page.\n'));
     }
 
-    currentPage = parseInt(currentPage);
     perPage = parseInt(perPage);
+    currentPage = parseInt(currentPage);
 
     var lean = params.lean ? params.lean : false;
 
@@ -53,7 +53,7 @@ module.exports = {
           .populate(params.populate)
           .sort(params.sort)
           .lean(lean)
-          .skip((params.currentPage - 1) * perPage)
+          .skip((currentPage - 1) * perPage)
           .limit(perPage)
 
         .exec(function(err, documents) {
