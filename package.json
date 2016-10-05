@@ -1,6 +1,6 @@
 {
   "name": "cagination",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A Mongoose helper to simplify the pagination process.",
   "main": "cagination.js",
   "scripts": {
@@ -30,7 +30,7 @@
     "url": "https://github.com/hemphillcc/cagination/issues"
   },
   "dependencies": {
-    "async": "1.x.x",
+    "async": "2.x.x",
     "cli-color": "1.x.x"
   },
   "devDependencies": {

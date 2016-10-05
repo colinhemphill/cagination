@@ -39,6 +39,9 @@ module.exports = {
       console.log(warn('\nCaginate defaulting to 25 documents per page.\n'));
     }
 
+    currentPage = parseInt(currentPage);
+    perPage = parseInt(perPage);
+
     var lean = params.lean ? params.lean : false;
 
     async.parallel({
