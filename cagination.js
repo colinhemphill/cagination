@@ -40,7 +40,7 @@ module.exports = {
     }
 
     perPage = parseInt(perPage);
-    currentPage = parseInt(currentPage);
+    currentPage = parseInt(params.currentPage);
 
     var lean = params.lean ? params.lean : false;
 

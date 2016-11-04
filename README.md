@@ -98,6 +98,7 @@ The Caginate callback will look something like:
 
 ## Version History
 
+* 0.1.9 currentPage parse fix.
 * 0.1.8 Syntax bugfix.
 * 0.1.7 Dependency updates. Parse integers for limits and skips.
 * 0.1.6 Dependency updates
