@@ -33,10 +33,6 @@ module.exports = {
       params.populate = '';
     }
 
-    if (!params.maxTime) {
-      params.maxTime = defaults.maxTime;
-    }
-
     var perPage, currentPage;
     if (params.perPage) {
       perPage = params.perPage;
@@ -49,6 +45,7 @@ module.exports = {
     currentPage = parseInt(params.currentPage);
 
     var lean = params.lean ? params.lean : false;
+    var maxTime = params.maxTime ? params.maxTime : defaults.maxTime;
 
     async.parallel({
 
@@ -61,7 +58,7 @@ module.exports = {
           .lean(lean)
           .skip((currentPage - 1) * perPage)
           .limit(perPage)
-          .maxTime(params.maxTime)
+          .maxTime(maxTime)
 
           .exec(function (err, documents) {
             if (err) {
