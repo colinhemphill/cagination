@@ -7,7 +7,8 @@ var warn = clc.yellow;
 
 /* Defaults */
 var defaults = {
-  perPage: 25
+  perPage: 25,
+  maxTime: null
 };
 
 /* Exports */
@@ -21,14 +22,19 @@ module.exports = {
    * @param  {Object} options
    * @return {Object}
    */
-  find: function(model, params, fn) {
+  find: function (model, params, fn) {
 
     if (!params.currentPage) {
-      return fn('Caginate: you didn\'t provide the currentPage. I don\'t know where it went. I\'m confused!', null, null, null);
+      return fn('Caginate: you didn\'t provide the currentPage. I don\'t know where it went. I\'m confused!',
+        null, null, null);
     }
 
     if (!params.populate) {
       params.populate = '';
+    }
+
+    if (!params.maxTime) {
+      params.maxTime = defaults.maxTime;
     }
 
     var perPage, currentPage;
@@ -47,7 +53,7 @@ module.exports = {
     async.parallel({
 
       // find the paginated documents in parallel
-      findDocuments: function(callback) {
+      findDocuments: function (callback) {
         model.find(params.options, params.meta)
           .select(params.select)
           .populate(params.populate)
@@ -55,21 +61,22 @@ module.exports = {
           .lean(lean)
           .skip((currentPage - 1) * perPage)
           .limit(perPage)
+          .maxTime(params.maxTime)
 
-        .exec(function(err, documents) {
-          if (err) {
-            return callback(err, null);
-          } else if (!documents) {
-            return callback('Error finding paginated documents.', null);
-          }
+          .exec(function (err, documents) {
+            if (err) {
+              return callback(err, null);
+            } else if (!documents) {
+              return callback('Error finding paginated documents.', null);
+            }
 
-          return callback(null, documents);
-        });
+            return callback(null, documents);
+          });
       },
 
       // count the total documents in parallel
-      countDocuments: function(callback) {
-        model.count(params.options, function(err, count) {
+      countDocuments: function (callback) {
+        model.count(params.options, function (err, count) {
           if (err) {
             return callback(err, null);
           } else if (count == null || count == undefined) {
@@ -85,7 +92,7 @@ module.exports = {
         });
       }
 
-    }, function(err, results) {
+    }, function (err, results) {
       if (err) {
         return fn(err, null, null, null);
       }
