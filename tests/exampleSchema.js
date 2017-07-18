@@ -1,9 +1,13 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/cagination_test_db', function(err) {
+mongoose.connect('mongodb://localhost/cagination_test_db', function (err) {
   if (err) throw err;
 });
+
+const cagination = require('../cagination');
+
+mongoose.plugin(cagination);
 
 exports.Actor = mongoose.model('Actor', new Schema({
   updatedAt: {

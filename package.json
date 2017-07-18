@@ -1,14 +1,12 @@
 {
   "name": "cagination",
-  "version": "0.1.10",
+  "version": "1.0.0",
   "description": "A Mongoose helper to simplify the pagination process.",
   "main": "cagination.js",
-  "scripts": {
-    "test": "grunt test"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/hemphillcc/cagination.git"
+    "url": "git://github.com/colinhemphill/cagination.git"
   },
   "keywords": [
     "paginate",
@@ -24,20 +22,19 @@
   "license": "MIT",
   "licenses": {
     "type": "MIT",
-    "url": "https://github.com/hemphillcc/cagination/blob/master/LICENSE"
+    "url": "https://github.com/colinhemphill/cagination/blob/master/LICENSE"
   },
   "bugs": {
-    "url": "https://github.com/hemphillcc/cagination/issues"
+    "url": "https://github.com/colinhemphill/cagination/issues"
   },
   "dependencies": {
-    "async": "2.x.x",
-    "cli-color": "1.x.x"
+    "chalk": "2.0.1",
+    "underscore": "1.8.3"
+  },
+  "peerDependencies": {
+    "mongoose": ">=3.0.0"
   },
   "devDependencies": {
-    "chai": "1.9.x",
-    "grunt": "0.4.x",
-    "grunt-simple-mocha": "0.4.x",
-    "mocha": "1.21.x",
-    "mongoose": "4.x.x"
+    "chai": "^4.1.0"
   }
 }

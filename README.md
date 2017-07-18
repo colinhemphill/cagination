@@ -2,39 +2,37 @@
 
 # Cagination
 
-A Mongoose helper to simplify the pagination process.
+A Mongoose helper to simplify pagination on the back-end.
 
-If you are looking for a nice front-end component to interface with pagination, check out our AngularJS project [Cagination Angular](https://github.com/hemphillcc/cagination-angular). These two projects integrate nicely for seamless, full stack pagination.
+## Installation
 
-## The Old, Painful Way
+Install via NPM:
 
 ```
-var currentPage = data.currentPage;
-var perPage = data.perPage;
-var options = {
-    actorId: nicCage._id
-};
+npm install cagination --save
+```
 
-Film.find(options).select('name actorId').populate({
-    path: 'actorId',
-    select: 'lastName'
-}).sort({
-    name: -1
-}).skip((currentPage - 1) * perPage).limit(perPage).exec(function(err, films) {
-    Film.count(options).exec(function(err, count) {
-        var totalPages = Math.ceil(count / perPage);
-        // return films and totalPages
-    });
+## Setup
+
+Require the module:
+
+```
+var caginate = require('cagination');
+```
+
+If you want to set some global defaults, you can configure as follows:
+
+```
+caginate.configure({
+  maxTime: 500 // defaults to `null`
 });
 ```
 
-NOT THE PAGES! NOT THE PAGES! AGWHGHAHGHAA THEY'RE CLOGGING MY CODE!
-
-Of course this is quite a mess, and painful to rewrite for each query you need paginated. Although the .count() procedure is pretty quick, to make this really efficient, you would need to also utilize [async](https://github.com/caolan/async) to perform that operation in parallel with .find(). But then you have a real disaster on your hands for such a simple task.
+All queries made with the module will follow this configuration.
 
 ## The Cage Rage Way
 
-Caginate aims to be robust but reproducible. Like your standard find() query, Caginate can accept the same options for select, populate, and sort. However, Caginate handles all of the bothersome math and manual skipping/limiting needed to get a paginated return. Additionally, it asynchronously grabs the document count in order to provide you with the total number of pages.
+You can use Cagination as a nearly identical replacement for a Mongoose `find()` operation.
 
 ```
 var currentPage = data.currentPage;
@@ -43,7 +41,7 @@ var options = {
     firstName: 'Nicolas'
 };
 
-caginate(Film, {
+caginate.find(Film, {
     options: options,
     select: 'name actorId',
     populate: {
@@ -61,54 +59,9 @@ caginate(Film, {
 });
 ```
 
-### Setup and Options
-
-Get the source from [GitHub](https://github.com/hemphillcc/cagination) or install via NPM
-
-```
-npm install cagination --save
-```
-
-Make sure to add:
-
-```
-var caginate = require('cagination').find;
-```
-
-and you should be set. At any time you want paginated results, replace your Mongoose `Model.find(query, callback)` with `caginate(Model, query, callback)`.
-
-The Caginate query is an object consisting of:
-
-- options (optional)
-- meta (optional) - this field allows us to support an additional parameter on the Mongoose `find`, such as `{score : {$meta : 'textScore'}}` for text searches
-- select (optional)
-- populate (optional)
-- sort (optional)
-- lean (`boolean`, optional - defaults to false)
-- maxTime (optional) - sets maxTimeMS for cursor
-- perPage (optional - defaults to 25 - how many documents to get back per page)
-- currentPage (required - the page to retrieve documents for)
-
-### Callback
-
-The Caginate callback will look something like:
-
-```
-caginate(Model, {
-    perPage: 10,
-    currentPage: 1
-}, function(err, documents, count, totalPages) {
-    if(err) {
-        // handle the Mongoose error
-    }
-    // documents - documents matching query but limited by perPage
-    // count - the total number of documents matching your query
-    // totalPages - pages needed to fit all of the documents at 10 per page
-});
-```
-
 ## Version History
 
+- **1.0.0:** Module rewritten from scratch for better performance and configurability. Allows and defaults to a more efficient pagination method for larger data sets (using the document ids without a `skip` operation).
 - **0.1.10:** Add `maxTime` option
 - **0.1.9:** currentPage parse fix.
 - **0.1.8:** Syntax bugfix.

@@ -1,12 +1,11 @@
-/* Requirements */
-var expect = require('chai').expect;
-var cagination = require('../cagination');
-var exampleSchema = require('./exampleSchema');
-var clc = require('cli-color');
+const chai = require('chai');
+const chalk = require('cli-color');
+const chalkError = chalk.white.bgRed;
 
-var error = clc.red;
+const expect = require('chai').expect;
+const exampleSchema = require('./exampleSchema');
 
-describe('find test', function() {
+describe('find test', function () {
 
   var Actor = exampleSchema.Actor;
   var Film = exampleSchema.Film;
@@ -29,12 +28,12 @@ describe('find test', function() {
   };
 
   // start with fresh database
-  before(function(done) {
-    Actor.remove({}, function() {
-      Film.remove({}, function() {
-        nicCage.save(function(err) {
+  before(function (done) {
+    Actor.remove({}, function () {
+      Film.remove({}, function () {
+        nicCage.save(function (err) {
           var films = getFilms(nicCage._id);
-          Film.create(films, function(err, createdFilms) {
+          Film.create(films, function (err, createdFilms) {
             done();
           });
         });
@@ -43,7 +42,7 @@ describe('find test', function() {
   });
 
   // test 1st page
-  it('Get page 1 of results given 2 per page', function() {
+  it('Get page 1 of results given 2 per page', function () {
     var result = false;
 
     cagination.find(Film, {
@@ -54,10 +53,10 @@ describe('find test', function() {
       perPage: 2,
       lean: true,
       currentPage: 1
-    }, function(err, films, count, totalPages) {
+    }, function (err, films, count, totalPages) {
       console.log(films, count, totalPages);
       if (err) {
-        console.log(error(err.toString()));
+        console.log(chalkError(err.toString()));
         result = false;
       } else if (films && count && totalPages) {
         result = true;
@@ -67,7 +66,7 @@ describe('find test', function() {
   });
 
   // test 2nd page
-  it('Get page 2 of results given 2 per page', function() {
+  it('Get page 2 of results given 2 per page', function () {
     var result = false;
 
     cagination.find(Film, {
@@ -77,10 +76,10 @@ describe('find test', function() {
       sort: sortOptions,
       perPage: 2,
       currentPage: 2
-    }, function(err, films, count, totalPages) {
+    }, function (err, films, count, totalPages) {
       console.log(films, count, totalPages);
       if (err) {
-        console.log(error(err.toString()));
+        console.log(chalkError(err.toString()));
         result = false;
       } else if (films && count && totalPages) {
         result = true;
@@ -90,7 +89,7 @@ describe('find test', function() {
   });
 
   // test 3rd page
-  it('Get page 3 of results given 2 per page', function() {
+  it('Get page 3 of results given 2 per page', function () {
     var result = false;
 
     cagination.find(Film, {
@@ -100,10 +99,10 @@ describe('find test', function() {
       sort: sortOptions,
       perPage: 2,
       currentPage: 3
-    }, function(err, films, count, totalPages) {
+    }, function (err, films, count, totalPages) {
       console.log(films, count, totalPages);
       if (err) {
-        console.log(error(err.toString()));
+        console.log(chalkError(err.toString()));
         result = false;
       } else if (films && count && totalPages) {
         result = true;
@@ -113,7 +112,7 @@ describe('find test', function() {
   });
 
   // test 4th page
-  it('Get page 4 of results given 2 per page', function() {
+  it('Get page 4 of results given 2 per page', function () {
     var result = false;
 
     cagination.find(Film, {
@@ -123,10 +122,10 @@ describe('find test', function() {
       sort: sortOptions,
       perPage: 2,
       currentPage: 4
-    }, function(err, films, count, totalPages) {
+    }, function (err, films, count, totalPages) {
       console.log(films, count, totalPages);
       if (err) {
-        console.log(error(err.toString()));
+        console.log(chalkError(err.toString()));
         result = false;
       } else if (films && count && totalPages) {
         result = true;
