@@ -30,7 +30,7 @@
     "url": "https://github.com/hemphillcc/cagination/issues"
   },
   "dependencies": {
-    "async": "2.x.x",
+    "async": "3.x",
     "cli-color": "1.x.x"
   },
   "devDependencies": {
