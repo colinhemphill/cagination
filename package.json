@@ -38,6 +38,6 @@
     "grunt": "0.4.5",
     "grunt-simple-mocha": "0.4.1",
     "mocha": "1.21.5",
-    "mongoose": "4.13.19"
+    "mongoose": "5.7.7"
   }
 }
